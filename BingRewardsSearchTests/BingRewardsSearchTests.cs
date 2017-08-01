@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BingRewardsSearch
+namespace BingRewardsSearchTests
 {
-    public class Class1
+    public class BingRewardsSearchTests
     {
     }
 }
