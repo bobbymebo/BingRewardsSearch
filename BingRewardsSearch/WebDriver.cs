@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
@@ -9,8 +10,10 @@ using OpenQA.Selenium.IE;
 {
     public class WebDriver
     {
-        public static IWebDriver Driver { get; set; }
 
+
+
+        public static IWebDriver Driver { get; set; }
         public enum BrowserSize
         {
             Desktop,
@@ -41,7 +44,9 @@ using OpenQA.Selenium.IE;
                     Driver = new FirefoxDriver();
                     break;
                 case BrowserType.Chrome:
-                    Driver = new ChromeDriver();
+                    ChromeOptions userSession = new ChromeOptions();
+                    userSession.AddArgument("user-data-dir=C:\\Users\\bborisov\\AppData\\Local\\Google\\Chrome\\User Data");
+                    Driver = new ChromeDriver(userSession);
                     break;
                 case BrowserType.ChromeMobile:
                     Driver = new ChromeDriver();
@@ -63,6 +68,11 @@ using OpenQA.Selenium.IE;
                     Driver.Manage().Window.Size = new Size(768, 800);
                     break;
             }
+        }
+
+        public static void Manage()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

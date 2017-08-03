@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 
 namespace BingRewardsSearch
 {
@@ -7,7 +8,7 @@ namespace BingRewardsSearch
 
         public void NavigateToBingPage()
         {
-            var Url = "https://bing.com";
+            var Url = "https://www.bing.com";
             WebDriver.Driver.Navigate().GoToUrl(Url);
         }
 
