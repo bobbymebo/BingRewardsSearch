@@ -20,8 +20,8 @@ namespace BingRewardsSearchTests
         [OneTimeTearDown]
         public void TextFixtureTearDown()
         {
-            //WebDriver.Driver.Quit();
-            //WebDriver.Driver.Dispose();
+            WebDriver.Driver.Quit();
+            WebDriver.Driver.Dispose();
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace BingRewardsSearchTests
 
         }
 
-        private int timeout = 2000;
+        private int timeout = 750;
         readonly BingRewardsSearchPom _bingRewardsSearchPom = new BingRewardsSearchPom();
         readonly BingRewardsSearchCommand _bingRewardsSearchCommand = new BingRewardsSearchCommand();
         readonly BingRewardsSearchDataModel _bingRewardsSearchDataModel = new BingRewardsSearchDataModel();

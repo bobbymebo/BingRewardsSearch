@@ -45,7 +45,7 @@ using OpenQA.Selenium.IE;
                     break;
                 case BrowserType.Chrome:
                     ChromeOptions userSession = new ChromeOptions();
-                    userSession.AddArgument("user-data-dir=C:\\Users\\bborisov\\AppData\\Local\\Google\\Chrome\\User Data");
+                    userSession.AddArgument("user-data-dir=C:/Users/bborisov/AppData/Local/Google/Chrome/User Data");
                     Driver = new ChromeDriver(userSession);
                     break;
                 case BrowserType.ChromeMobile:
