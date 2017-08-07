@@ -42,12 +42,12 @@ using OpenQA.Selenium.IE;
                     break;
                 case BrowserType.Firefox:
                     var profileManager = new FirefoxProfileManager();
-                    FirefoxProfile profile = profileManager.GetProfile("Selenium"); //Save default firefox profile - I named mine Selenium.
+                    FirefoxProfile profile = profileManager.GetProfile("Selenium"); //Use preferred firefox profile - Mine is named Selenium. For more information see readme.md file.
                     Driver = new FirefoxDriver(profile);
                     break;
                 case BrowserType.Chrome:
                     ChromeOptions userSessionChrome = new ChromeOptions();
-                    userSessionChrome.AddArgument("user-data-dir=C:/Users/bborisov/AppData/Local/Google/Chrome/User Data");
+                    userSessionChrome.AddArgument("user-data-dir=C:/Users/UserName/AppData/Local/Google/Chrome/User Data");
                     Driver = new ChromeDriver(userSessionChrome);
                     break;
                 case BrowserType.ChromeMobile:
