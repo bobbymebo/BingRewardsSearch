@@ -1,11 +1,9 @@
-﻿using System;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace BingRewardsSearch
 {
     public class BingRewardsSearchCommand
     {
-
         public void NavigateToBingPage()
         {
             var Url = "https://www.bing.com";
@@ -22,9 +20,6 @@ namespace BingRewardsSearch
             WebDriver.Driver.FindElement(By.Id("sb_form_q")).SendKeys(Keys.Return);
         }
 
-
         private  readonly  BingRewardsSearchPom _bingRewardsSearchPom = new BingRewardsSearchPom();
-
-
     }
 }

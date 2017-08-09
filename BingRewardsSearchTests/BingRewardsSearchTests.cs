@@ -9,7 +9,6 @@ namespace BingRewardsSearchTests
     [TestFixture]
     public class BingRewardsSearchTests
     {
-
         [OneTimeSetUp]
         public void TextFixtureInitialize()
         {
@@ -27,8 +26,7 @@ namespace BingRewardsSearchTests
         [Test]
         public void UserPerformsWebSearches()
         {
-
-            for (int i = 0; i < 30; i++)
+            for (int search = 0; search < 30; search++)
             {
                 string term = "testuser" + Guid.NewGuid().ToString();
                 _bingRewardsSearchPom.SearchBox.Clear();
@@ -36,12 +34,10 @@ namespace BingRewardsSearchTests
                 _bingRewardsSearchCommand.SubmitSearchOnSite();
                 Thread.Sleep(timeout);
             }
-
         }
 
         private int timeout = 2500;
         readonly BingRewardsSearchPom _bingRewardsSearchPom = new BingRewardsSearchPom();
         readonly BingRewardsSearchCommand _bingRewardsSearchCommand = new BingRewardsSearchCommand();
-        readonly BingRewardsSearchDataModel _bingRewardsSearchDataModel = new BingRewardsSearchDataModel();
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
@@ -10,15 +8,12 @@ using OpenQA.Selenium.IE;
 {
     public class WebDriver
     {
-
-
-
         public static IWebDriver Driver { get; set; }
         public enum BrowserSize
         {
             Desktop,
-            Phone,
-            Tablet
+            //Phone, --support to be added later
+            //Tablet
         }
 
         public enum BrowserType
@@ -27,7 +22,6 @@ using OpenQA.Selenium.IE;
             Edge = 1,
             Firefox = 2,
             Chrome = 3,
-            ChromeMobile = 4
         }
 
         public static void InitializeWebBrowser(BrowserType browserType)
@@ -50,31 +44,7 @@ using OpenQA.Selenium.IE;
                     userSessionChrome.AddArgument("user-data-dir=C:/Users/UserName/AppData/Local/Google/Chrome/User Data");
                     Driver = new ChromeDriver(userSessionChrome);
                     break;
-                case BrowserType.ChromeMobile:
-                    Driver = new ChromeDriver();
-                    break;
             }
-        }
-
-        public static void InitializeBrowserSize(BrowserSize browserSize)
-        {
-            switch (browserSize)
-            {
-               case BrowserSize.Desktop:
-                    Driver.Manage().Window.Maximize();   
-                    break;
-                case BrowserSize.Phone:
-                    Driver.Manage().Window.Size = new Size(320, 480);
-                    break;
-                case BrowserSize.Tablet:
-                    Driver.Manage().Window.Size = new Size(768, 800);
-                    break;
-            }
-        }
-
-        public static void Manage()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
