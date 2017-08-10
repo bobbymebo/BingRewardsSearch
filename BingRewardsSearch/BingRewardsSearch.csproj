@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BingRewardsSearchCommand.cs" />
-    <Compile Include="BingRewardsSearchDataModel.cs" />
     <Compile Include="BingRewardsSearchPom.cs" />
     <Compile Include="WebDriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
