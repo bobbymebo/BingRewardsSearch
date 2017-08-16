@@ -22,6 +22,7 @@ using OpenQA.Selenium.IE;
             Edge = 1,
             Firefox = 2,
             Chrome = 3,
+            ChromeMobile = 4
         }
 
         public static void InitializeWebBrowser(BrowserType browserType)
@@ -42,7 +43,15 @@ using OpenQA.Selenium.IE;
                 case BrowserType.Chrome:
                     ChromeOptions userSessionChrome = new ChromeOptions();
                     userSessionChrome.AddArgument("user-data-dir=C:/Users/UserName/AppData/Local/Google/Chrome/User Data");
+                    //userSessionChrome.AddArguments("--headless");
+                    //userSessionChrome.AddArguments("--disable-gpu");
                     Driver = new ChromeDriver(userSessionChrome);
+                    break;
+                case BrowserType.ChromeMobile:
+                    ChromeOptions userSessionChromeMobile = new ChromeOptions();
+                    userSessionChromeMobile.AddArgument("user-data-dir=C:/Users/UserName/AppData/Local/Google/Chrome/User Data");
+                    userSessionChromeMobile.EnableMobileEmulation("Nexus 7");
+                    Driver = new ChromeDriver(userSessionChromeMobile);
                     break;
             }
         }

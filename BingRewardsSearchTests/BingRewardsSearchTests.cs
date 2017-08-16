@@ -6,14 +6,30 @@ using BingRewardsSearch;
 
 namespace BingRewardsSearchTests
 {
-    [TestFixture]
+    [TestFixture(true)]
+    [TestFixture(false)]
     public class BingRewardsSearchTests
     {
+        public bool Desktop { get; }
+
+        public BingRewardsSearchTests(bool desktop)
+        {
+            Desktop = desktop;
+        }
+
         [OneTimeSetUp]
         public void TextFixtureInitialize()
         {
-          WebDriver.InitializeWebBrowser(WebDriver.BrowserType.Firefox);
-                   _bingRewardsSearchCommand.NavigateToBingPage();
+            if (Desktop)
+            {
+                WebDriver.InitializeWebBrowser(WebDriver.BrowserType.Chrome);
+                _bingRewardsSearchCommand.NavigateToBingPage();
+            }
+            else
+            {
+                WebDriver.InitializeWebBrowser(WebDriver.BrowserType.ChromeMobile);
+                _bingRewardsSearchCommand.NavigateToBingPage();
+            }
         }
 
         [OneTimeTearDown]
