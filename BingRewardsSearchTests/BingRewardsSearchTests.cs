@@ -10,7 +10,7 @@ namespace BingRewardsSearchTests
     [TestFixture(false)]
     public class BingRewardsSearchTests
     {
-        public bool Desktop { get; }
+        public bool Desktop { get; set; }
 
         public BingRewardsSearchTests(bool desktop)
         {

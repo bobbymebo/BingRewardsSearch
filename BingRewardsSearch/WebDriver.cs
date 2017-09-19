@@ -3,8 +3,9 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using System.Drawing;
 
- namespace BingRewardsSearch
+namespace BingRewardsSearch
 {
     public class WebDriver
     {
@@ -12,8 +13,8 @@ using OpenQA.Selenium.IE;
         public enum BrowserSize
         {
             Desktop,
-            //Phone, --support to be added later
-            //Tablet
+            Phone,
+            Tablet
         }
 
         public enum BrowserType
@@ -49,11 +50,31 @@ using OpenQA.Selenium.IE;
                     break;
                 case BrowserType.ChromeMobile:
                     ChromeOptions userSessionChromeMobile = new ChromeOptions();
+                    //userSessionChromeMobile.AddArguments("no-sandbox");
                     userSessionChromeMobile.AddArgument("user-data-dir=C:/Users/UserName/AppData/Local/Google/Chrome/User Data");
                     userSessionChromeMobile.EnableMobileEmulation("Nexus 7");
                     Driver = new ChromeDriver(userSessionChromeMobile);
                     break;
             }
         }
+
+
+        public static void SetBrowserSize(BrowserSize size)
+        {
+            switch (size)
+            {
+                case BrowserSize.Desktop:
+                    Driver.Manage().Window.Maximize();
+                    break;
+                case BrowserSize.Tablet:
+                    Driver.Manage().Window.Size = new Size(768, 800);
+                    break;
+                case BrowserSize.Phone:
+                    Driver.Manage().Window.Size = new Size(320, 480);
+                    break;
+            }
+
+        }
+
     }
 }
